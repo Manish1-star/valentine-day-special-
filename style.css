@@ -1,13 +1,8 @@
-/* Variables */
 :root {
     --primary: #ff3366;
-    --secondary: #ff85a2;
     --glass: rgba(255, 255, 255, 0.45);
-    --glass-border: rgba(255, 255, 255, 0.8);
-    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
-/* Base Settings */
 body {
     margin: 0;
     height: 100vh;
@@ -27,45 +22,68 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+/* 👉 OVERLAY STYLES (New) */
+#overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.5s ease;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+}
+
+.overlay-content h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    color: #ff3366;
+}
+
+.heart-pulse {
+    font-size: 3rem;
+    animation: pulse 1s infinite;
+    margin-top: 20px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
 /* Glass Card */
 .glass-card {
     background: var(--glass);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border: 2px solid var(--glass-border);
+    border: 2px solid rgba(255,255,255,0.8);
     padding: 30px;
     border-radius: 25px;
     text-align: center;
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     max-width: 90%;
     width: 400px;
-    position: relative;
-    z-index: 10;
 }
 
-.sticker {
-    width: 140px;
-    height: auto;
-    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
-}
+.sticker { width: 140px; height: auto; }
 
-/* Typography */
 h1 {
     font-family: 'Sacramento', cursive;
     font-size: 2.8rem;
     color: #d6336c;
     margin: 10px 0;
-    line-height: 1.2;
-    min-height: 70px; /* Space for typing */
+    min-height: 70px;
 }
 
-.sub-text {
-    color: #444;
-    font-size: 0.95rem;
-    margin-bottom: 25px;
-}
-
-/* Buttons */
 .buttons {
     display: flex;
     justify-content: center;
@@ -81,57 +99,22 @@ button {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-#yes-btn {
-    background: var(--primary);
-    color: white;
-}
+#yes-btn { background: var(--primary); color: white; }
+#yes-btn:hover { transform: scale(1.1); background: #e6004c; }
+#no-btn { background: white; color: #333; position: relative; }
 
-#yes-btn:hover {
-    transform: scale(1.1);
-    background: #e6004c;
-}
-
-#no-btn {
-    background: white;
-    color: #333;
-    position: relative; /* Crucial for movement */
-}
-
-/* Music Button */
-.music-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 100;
-    transition: 0.3s;
-}
-
-.music-btn:hover { transform: scale(1.05); }
-
-/* Success Screen */
 .hidden { display: none; }
 
 .timer-box {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255,255,255,0.6);
     padding: 15px;
     border-radius: 15px;
     margin: 15px 0;
 }
 
-#timer {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--primary);
-}
+#timer { font-size: 1.1rem; font-weight: 600; color: var(--primary); }
 
 .couple-photo {
     width: 100%;
@@ -139,17 +122,16 @@ button {
     object-fit: cover;
     border-radius: 15px;
     border: 4px solid white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     margin-top: 10px;
 }
 
-/* Background Floating Hearts */
+/* Background Hearts */
 .hearts-container {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     top: 0; left: 0;
     pointer-events: none;
+    z-index: -1;
 }
 
 .heart {
