@@ -3,74 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Valentine ❤️</title>
-    
-    <!-- Google Fonts for Aesthetic Look -->
+    <title>For You ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    
-    <!-- CSS Link -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
     <!-- 🎵 Music Player -->
-    <!-- Just put a file named 'song.mp3' in your folder -->
     <audio id="bg-music" loop>
         <source src="song.mp3" type="audio/mp3">
     </audio>
 
-    <div class="music-btn" onclick="toggleMusic()">
-        🎵 Play Music
+    <!-- 👉 CLICK TO START OVERLAY (This makes music work) -->
+    <div id="overlay" onclick="startExperience()">
+        <div class="overlay-content">
+            <h1>Tap to Open 💌</h1>
+            <p>I have a surprise for you...</p>
+            <div class="heart-pulse">❤️</div>
+        </div>
     </div>
 
-    <!-- ❤️ Floating Background Hearts -->
+    <!-- Background Hearts -->
     <div class="hearts-container">
         <div class="heart">❤️</div>
         <div class="heart">💖</div>
         <div class="heart">💕</div>
         <div class="heart">🌹</div>
         <div class="heart">🥰</div>
-        <div class="heart">❤️</div>
     </div>
 
     <div class="glass-card">
-        
-        <!-- Screen 1: The Question -->
+        <!-- Screen 1: Question -->
         <div id="ask-section">
             <img src="https://media.tenor.com/BfRK4wH6yYgAAAAi/mocha-bear-hearts.gif" class="sticker" alt="Bear">
-            
-            <!-- Typing Effect Text -->
             <h1 id="typewriter"></h1>
-            
-            <p class="sub-text">I have something special to ask you...</p>
-
+            <p class="sub-text">I have something to ask...</p>
             <div class="buttons">
                 <button id="yes-btn" onclick="handleYes()">Yes, I will! 💖</button>
                 <button id="no-btn" onmouseover="moveNo()" onclick="moveNo()">No 🙄</button>
             </div>
         </div>
 
-        <!-- Screen 2: Success & Memories -->
+        <!-- Screen 2: Success -->
         <div id="success-section" class="hidden">
             <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" class="sticker" alt="Kiss">
             <h1>Yay! I Love You! ❤️</h1>
             
-            <!-- Love Timer -->
             <div class="timer-box">
-                <p>We have been in love for:</p>
-                <div id="timer">Loading time...</div>
+                <p>Together for:</p>
+                <div id="timer">Calculating...</div>
             </div>
 
-            <!-- 📸 Photo Frame -->
-            <!-- Just put a file named 'us.jpg' in your folder -->
             <div class="memory-frame">
-                <p>You are my favorite person! 🥰</p>
-                <img src="us.jpg" alt="Our Photo" class="couple-photo" onerror="this.style.display='none'">
+                <p>My Favorite Person 🥰</p>
+                <img src="us.jpg" alt="Us" class="couple-photo" onerror="this.style.display='none'">
             </div>
-            
             <p class="footer-note">See you on Feb 14! 🌹</p>
         </div>
     </div>
