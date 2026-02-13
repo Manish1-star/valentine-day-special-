@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? ❤️</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Background Floating Hearts -->
+    <div class="heart-bg">
+        <div class="heart">❤️</div>
+        <div class="heart">💖</div>
+        <div class="heart">💜</div>
+        <div class="heart">❤️</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+    </div>
+
+    <div class="container">
+        <!-- Question Screen -->
+        <div id="question-screen">
+            <img class="gif" src="https://media.tenor.com/K2QK_8jYqK4AAAAi/mocha-bear.gif" alt="Cute Bear">
+            <h1 id="main-question">Will you be my Valentine?</h1>
+            <p class="sub-text">Please say yes! 🥺</p>
+            
+            <div class="btn-group">
+                <button id="yes-btn" onclick="handleYes()">Yes! 💖</button>
+                <button id="no-btn" onmouseover="moveButton()" onclick="moveButton()">No 😢</button>
+            </div>
+        </div>
+
+        <!-- Success Screen -->
+        <div id="success-screen" class="hidden">
+            <img class="gif" src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="Bear Kiss">
+            <h1>Yay! I Love You! ❤️</h1>
+            <p>Can't wait for our date! 🌹</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
