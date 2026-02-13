@@ -1,102 +1,82 @@
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Variables */
+:root {
+    --primary: #ff3366;
+    --secondary: #ff85a2;
+    --glass: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
+/* Base Settings */
 body {
+    margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
-    position: relative;
 }
 
-/* Floating Hearts Animation */
-.heart-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.heart {
-    position: absolute;
-    bottom: -50px;
-    font-size: 2rem;
-    animation: floatUp 10s linear infinite;
-    opacity: 0.5;
-}
-
-/* Random positioning for background hearts */
-.heart:nth-child(1) { left: 10%; animation-duration: 8s; }
-.heart:nth-child(2) { left: 30%; animation-duration: 12s; animation-delay: 2s; }
-.heart:nth-child(3) { left: 50%; animation-duration: 10s; animation-delay: 4s; }
-.heart:nth-child(4) { left: 70%; animation-duration: 14s; animation-delay: 1s; }
-.heart:nth-child(5) { left: 90%; animation-duration: 9s; animation-delay: 3s; }
-.heart:nth-child(6) { left: 20%; animation-duration: 11s; animation-delay: 5s; }
-
-@keyframes floatUp {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
-}
-
-/* Main Card - Glassmorphism */
-.container {
-    background: rgba(255, 255, 255, 0.3);
+/* Glass Card */
+.glass-card {
+    background: var(--glass);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    padding: 40px;
-    border-radius: 20px;
+    border: 2px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 25px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     max-width: 90%;
     width: 400px;
-    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 10;
 }
 
-.container:hover {
-    transform: translateY(-5px);
-}
-
-.gif {
+.sticker {
     width: 140px;
     height: auto;
-    margin-bottom: 10px;
     filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
 }
 
+/* Typography */
 h1 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Sacramento', cursive;
+    font-size: 2.8rem;
     color: #d6336c;
-    font-size: 2.5rem;
-    margin-bottom: 5px;
+    margin: 10px 0;
+    line-height: 1.2;
+    min-height: 70px; /* Space for typing */
 }
 
 .sub-text {
-    color: #666;
+    color: #444;
+    font-size: 0.95rem;
     margin-bottom: 25px;
-    font-size: 1rem;
 }
 
 /* Buttons */
-.btn-group {
+.buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
-    position: relative;
-    height: 50px; /* Keeps layout stable */
+    margin-top: 20px;
 }
 
 button {
-    padding: 10px 30px;
-    border: none;
+    padding: 12px 25px;
     border-radius: 50px;
+    border: none;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -105,22 +85,88 @@ button {
 }
 
 #yes-btn {
-    background-color: #ff4d6d;
+    background: var(--primary);
     color: white;
 }
 
 #yes-btn:hover {
-    background-color: #d93755;
     transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+    background: #e6004c;
 }
 
 #no-btn {
-    background-color: white;
+    background: white;
     color: #333;
+    position: relative; /* Crucial for movement */
 }
 
-/* Hide Utility */
-.hidden {
-    display: none;
+/* Music Button */
+.music-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+    transition: 0.3s;
+}
+
+.music-btn:hover { transform: scale(1.05); }
+
+/* Success Screen */
+.hidden { display: none; }
+
+.timer-box {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+
+#timer {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.couple-photo {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 10px;
+}
+
+/* Background Floating Hearts */
+.hearts-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 2rem;
+    animation: floatUp 8s linear infinite;
+    opacity: 0.6;
+}
+
+.heart:nth-child(1) { left: 10%; animation-duration: 9s; }
+.heart:nth-child(2) { left: 30%; animation-duration: 11s; animation-delay: 2s; }
+.heart:nth-child(3) { left: 50%; animation-duration: 8s; animation-delay: 4s; }
+.heart:nth-child(4) { left: 70%; animation-duration: 12s; animation-delay: 1s; }
+.heart:nth-child(5) { left: 90%; animation-duration: 10s; animation-delay: 3s; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
 }
