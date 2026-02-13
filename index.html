@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You ❤️</title>
+    <title>For You My Love ❤️</title>
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
@@ -15,10 +18,10 @@
         <source src="song.mp3" type="audio/mp3">
     </audio>
 
-    <!-- 👉 CLICK TO START OVERLAY (This makes music work) -->
+    <!-- 👉 CLICK TO START (Music Autoplay Trick) -->
     <div id="overlay" onclick="startExperience()">
         <div class="overlay-content">
-            <h1>Tap to Open 💌</h1>
+            <h1>Tap here to Open 💌</h1>
             <p>I have a surprise for you...</p>
             <div class="heart-pulse">❤️</div>
         </div>
@@ -34,32 +37,45 @@
     </div>
 
     <div class="glass-card">
+        
         <!-- Screen 1: Question -->
         <div id="ask-section">
             <img src="https://media.tenor.com/BfRK4wH6yYgAAAAi/mocha-bear-hearts.gif" class="sticker" alt="Bear">
+            
             <h1 id="typewriter"></h1>
-            <p class="sub-text">डल्ली तिम्रो लागि केही suprise छ I have something to ask...</p>
+            
+            <p class="sub-text">Please be honest... 🥺</p>
+
             <div class="buttons">
                 <button id="yes-btn" onclick="handleYes()">Yes, I will! 💖</button>
                 <button id="no-btn" onmouseover="moveNo()" onclick="moveNo()">No 🙄</button>
             </div>
         </div>
 
-        <!-- Screen 2: Success -->
+        <!-- Screen 2: Success (Nepali Status Here) -->
         <div id="success-section" class="hidden">
             <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" class="sticker" alt="Kiss">
-            <h1>Yay! I Love You! ❤️</h1>
             
+            <!-- Nepali Status -->
+            <div class="quote-box">
+                <p class="nepali-status">
+                    "साथको पर्खाल हालेर मायाको घर बनाउला, तिमी ढुक्क भएर साथ देउ, कसैको कुरा सुनेर कहिल्यै तिमीलाई एक्लो बनाउने छैन माया....! <br> 
+                    <span class="sign">टिकुली 💖🥰</span>"
+                </p>
+            </div>
+
+            <!-- Timer -->
             <div class="timer-box">
-                <p>Together for:</p>
+                <p>We started talking on Feb 2, 2026:</p>
                 <div id="timer">Calculating...</div>
             </div>
 
+            <!-- Photo -->
             <div class="memory-frame">
-                <p>My Favorite Person डल्ली 🥰</p>
                 <img src="us.jpg" alt="Us" class="couple-photo" onerror="this.style.display='none'">
             </div>
-            <p class="footer-note">See you on Feb 14! 🌹</p>
+            
+            <p class="footer-note">Happy Valentine's Day! 🌹</p>
         </div>
     </div>
 
